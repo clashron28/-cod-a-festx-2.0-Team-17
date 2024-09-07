@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BluTech Theatres - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://w0.peakpx.com/wallpaper/70/637/HD-wallpaper-john-wick-fanart-lets-go-john-wick-movies-deviantart.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 400px;
+        }
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 18px;
+        }
+        .login-btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 8px;
+            width: 100%;
+        }
+        .login-btn:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>BluTech Theatres Login</h2>
+    <input type="text" id="ticketId" placeholder="Ticket ID" maxlength="9" pattern="\d{9}" title="Please enter a 9-digit number" required>
+    <button class="login-btn" onclick="validateLogin()">Login</button>
+    <div id="error" class="error"></div>
+</div>
+
+<script>
+    function validateLogin() {
+        const ticketId = document.getElementById('ticketId').value;
+        const errorDiv = document.getElementById('error');
+
+        if (/^\d{9}$/.test(ticketId)) {
+            window.location.href = 'home.html';
+        } else {
+            errorDiv.textContent = 'Please enter a 9-digit number';
+        }
+    }
+</script>
+
+</body>
+</html>
+
